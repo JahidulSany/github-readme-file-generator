@@ -1,5 +1,4 @@
 from InquirerPy import inquirer
-from InquirerPy import prompt
 from rich.console import Console
 from rich.progress import Progress
 import time
@@ -63,6 +62,33 @@ class GithubReadmeGenerator:
 """    
         return content
 
+
+
+    # Writing on README.md file and Insert content
+    def generate_file(self, content):
+        with open("README.md".lower(), "w") as file:
+            file.write(content)
+
+        # # Show a progress bar
+        with Progress() as progress:
+            task = progress.add_task("Processing...", total=100)
+            for _ in range(10):
+                time.sleep(0.3)
+                progress.update(task, advance=10)
+
+        self.console.print("[bold green]README.md created successfully![/bold green] ✅")
+
+# Create an instance
+readmeGenerator = GithubReadmeGenerator()
+
+# Invoke the data collection method
+readmeGenerator.collect_content_data()
+
+# Call the generate Content method
+generateContent = readmeGenerator.generate_content_data()
+
+# Final Content Data
+readmeGenerator.generate_file(generateContent)
 
 
 
