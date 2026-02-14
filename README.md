@@ -47,5 +47,3 @@ Feel free to reach out if you’d like to connect or work together!
 
 👏 Thanks for checking out! I hope it gives you a strong sense of my skills and capabilities.
 
-👏 Thanks for checking out! I hope it gives you a strong sense of my skills and capabilities.
-
