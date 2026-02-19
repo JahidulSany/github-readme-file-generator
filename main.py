@@ -1,93 +1,20 @@
-from InquirerPy import inquirer
-from rich.console import Console
-from rich.progress import Progress
-import time
+from generator import GithubReadmeGenerator
+from data_instances import collect_content_data
+from content_data import generate_content_data
+from file_generate import generate_file
 
-class GithubReadmeGenerator:
+def main():
+    # Create an instance of the GithubReadmeGenerator class
+    readmeGenerator = GithubReadmeGenerator()
 
-    ## Constructor
-    def __init__(self):
-        self.title = ''
-        self.desc = ''
-        self.install_instruct = ''
-        self.usage_instruct = ''
-        self.license = []
-        self.author = ''
-        self.contact = ''
-        self.console = Console()
+    # Collect content data from the user
+    collect_content_data(readmeGenerator)
 
-    # Collecting Content Data from Constructor
-    def collect_content_data(self):
-        self.title = inquirer.text(message="Project Title: ").execute()
-        self.desc = inquirer.text(message="Project Description: ").execute()
-        self.install_instruct = inquirer.text(message="Installation Instructions: ").execute()
-        self.usage_instruct  = inquirer.text(message="Usage Instructions: ").execute()
-        licenses = ['MIT License', 'Apache License 2.0', 'GNU General Public License (GPL v3)', 'GNU Lesser General Public License (LGPL v3)', 'Mozilla Public License 2.0 (MPL 2.0)', 'Creative Commons Licenses (CC0, CC BY, etc.)', 'Unlicense']
-        self.license = inquirer.rawlist(message="Select a license from the following list: ", default=1, choices=licenses).execute()
-        self.author = inquirer.text(message="Author: ").execute()
-        self.contact = inquirer.text(message="Contact: ").execute()
+    # Generate the content for the README.md file
+    content = generate_content_data(readmeGenerator)
 
+    # Generate the README.md file with the generated content
+    generate_file(readmeGenerator, content)
 
-        # Generating Content Data
-    def generate_content_data(self):
-        content = f"""
-### 🌐 {self.title}
-
-# ✨ Project Description
-
-{self.desc}
-
-# 🛠️ Installation Instructions
-
-{self.install_instruct}
-
-# 💥 Usage Instructions
-
-{self.usage_instruct}
-
-# 🪪 License Options
-
-{self.license}
-
-# ✍️ Author:
-
-{self.author}
-
-# 📇 Contact:
-
-{self.contact}
-
-👏 Thanks for checking out! I hope it gives you a strong sense of my skills and capabilities.
-
-"""    
-        return content
-
-
-    # Writing on README.md file and Insert content
-    def generate_file(self, content):
-        with open("README.md".lower(), "w") as file:
-            file.write(content)
-
-        # # Show a progress bar
-        with Progress() as progress:
-            task = progress.add_task("Processing...", total=100)
-            for _ in range(10):
-                time.sleep(0.3)
-                progress.update(task, advance=10)
-
-        self.console.print("[bold green]README.md created successfully![/bold green] ✅")
-
-# Create an instance
-readmeGenerator = GithubReadmeGenerator()
-
-# Invoke the data collection method
-readmeGenerator.collect_content_data()
-
-# Call the generate Content method
-generateContent = readmeGenerator.generate_content_data()
-
-# Final Content Data
-readmeGenerator.generate_file(generateContent)
-
-
-
+if __name__ == "__main__":
+    main()

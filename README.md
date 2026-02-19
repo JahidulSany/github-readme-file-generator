@@ -1,3 +1,4 @@
+
 ### 🌐 Github Readme Generator In Python - Jahidul Sany
 
 # ✨ Project Description
@@ -6,10 +7,9 @@ This is a Python README.md file generator project using InquirerPy and Rich libr
 
 # 🛠️ Installation Instructions
 
-**Clone the repository**
-
 ```sh
 git clone https://github.com/JahidulSany/github-readme-file-generator.git
+
 ```
 
 # 💥 Usage Instructions
@@ -20,6 +20,7 @@ Simply open the Terminal in your VScode or Terminal/bash/cmd  — and follow the
 # Create a virtual environment
 ```sh
 python -m venv myenv
+
 ```
 
 # Activate the virtual environment
@@ -28,18 +29,21 @@ python -m venv myenv
 
 ```sh
 myenv\Scripts\activate
+
 ```
 
 # macOS/Linux:
 
 ```sh
 source myenv/bin/activate
+
 ```
 
 # Install dependencies
 
 ```sh
 pip install -r requirements.txt
+
 ```
 
 # 🪪 License Options
