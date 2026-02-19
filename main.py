@@ -63,7 +63,6 @@ class GithubReadmeGenerator:
         return content
 
 
-
     # Writing on README.md file and Insert content
     def generate_file(self, content):
         with open("README.md".lower(), "w") as file:

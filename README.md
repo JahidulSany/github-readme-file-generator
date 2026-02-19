@@ -43,13 +43,17 @@ pip install -r requirements.txt
 ```
 
 # 🪪 License Options
+
 MIT License
 
 # ✍️ Author:
-Jahidul Sany - Full Stack Software Developer
+
+Jahidul Islam Sany - FullStack Software Developer
 
 # 📇 Contact:
+
 Feel free to reach out if you’d like to connect or work together!
 📧 Email: jahidulsanypro@gmail.com
 
 👏 Thanks for checking out! I hope it gives you a strong sense of my skills and capabilities.
+
